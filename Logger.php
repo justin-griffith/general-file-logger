@@ -114,7 +114,7 @@ class Logger {
 		  
 			// If file locking queue becomes a problem we can switch to use 
 			// if(flock($fp, LOCK_EX | LOCK_NB)) {
-			// and write individual logs to an overflow directory.
+			// and queue log files in an overflow directory. (perhaps in individual timestamped files so we have no additional issues with locked file.)
 			// Then on next successfull file lock, check this directory and write all overflow log files to main working log file.
 			// Remove written overflow log files
 		
@@ -152,21 +152,6 @@ class Logger {
 				
 		}
 	return $content;
-	}
-
-	
-	/**
-	 * Checks file size to ensure that max file size has not been exceeded
-	 * If it has it will archive the working log file
-	 */
-	protected function checkFileSize() {
-	
-		// Checks working log file size
-		
-		// If working log file exceeds max size - archive it
-		
-		//
-		
 	}
 	
 	/**
